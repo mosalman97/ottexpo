@@ -1,13 +1,17 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-
+import { AppProviders } from "@/providers/AppProviders";
+import React from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import { RootNavigator } from '@/navigation';
 
 import "./global.css";
 
 export default function App() {
+
   return (
-    <View className='flex-1 bg-yellow-500'>
-      <Text className='text-red-500'>App</Text>
-    </View>
-  )
+    <AppProviders>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </AppProviders>
+  );
 }
