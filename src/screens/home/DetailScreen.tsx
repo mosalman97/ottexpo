@@ -1,11 +1,12 @@
 import { Container } from "@/components";
+import { MORE_ITEMS } from "@/data";
 import { useTheme } from "@/hooks/useTheme";
 import { colors } from "@/theme";
 import { ChannelItemProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import {
 	Animated,
 	Image,
@@ -36,6 +37,10 @@ export default function DetailScreen() {
 		extrapolate: "clamp",
 	});
 
+	const handleBack = useCallback(() => {
+		navigation.goBack();
+	}, [navigation]);
+
 	return (
 		<Container>
 			<StatusBar barStyle="light-content" />
@@ -52,13 +57,14 @@ export default function DetailScreen() {
 				scrollEventThrottle={16}
 				onScroll={Animated.event(
 					[{ nativeEvent: { contentOffset: { y: scrollY } } }],
-					{ useNativeDriver: false },
+					{ useNativeDriver: true },
 				)}
 			>
 				<View className="relative" style={{ height: HEADER_HEIGHT }}>
 					<Image
 						source={{ uri: movie.image }}
 						className="w-full h-full"
+						resizeMode="cover"
 					/>
 
 					<LinearGradient
@@ -66,11 +72,11 @@ export default function DetailScreen() {
 						className="absolute bottom-0 left-0 right-0 h-[180px]"
 					/>
 
-					<View className="absolute left-5 right-5 top-[50px] flex-row items-center justify-between">
+					<View className="absolute left-5 right-5 top-[30px] flex-row items-center justify-between">
 						<TouchableOpacity
-							onPress={() => {
-								navigation.goBack();
-							}}
+							onPress={handleBack}
+							accessibilityRole="button"
+							accessibilityLabel="Go back"
 						>
 							<Ionicons
 								name="arrow-back"
@@ -120,24 +126,22 @@ export default function DetailScreen() {
 						{movie.isPremium && <Chip icon="crown">Premium</Chip>}
 					</View>
 
-					<Button mode="contained" icon="play" className="mt-6">
-						<Text
-							style={{
-								color: isDark ? colors.white : colors.black,
-							}}
-						>
-							Play Now
-						</Text>
+					<Button
+						mode="contained"
+						icon="play"
+						className="mt-6"
+						textColor={isDark ? colors.white : colors.black}
+					>
+						Play Now
 					</Button>
 
-					<Button mode="outlined" icon="download" className="mt-3">
-						<Text
-							style={{
-								color: isDark ? colors.white : colors.black,
-							}}
-						>
-							Download
-						</Text>
+					<Button
+						mode="outlined"
+						icon="download"
+						className="mt-3"
+						textColor={isDark ? colors.white : colors.black}
+					>
+						Download
 					</Button>
 
 					<Text className="mb-2.5 mt-[30px] text-white">About</Text>
@@ -154,11 +158,12 @@ export default function DetailScreen() {
 						horizontal
 						showsHorizontalScrollIndicator={false}
 					>
-						{[1, 2, 3, 4, 5].map((item) => (
+						{MORE_ITEMS.map((item) => (
 							<Image
 								key={item}
 								source={{ uri: movie.image }}
 								className="mr-[14px] h-[190px] w-[130px] rounded-xl"
+								resizeMode="cover"
 							/>
 						))}
 					</ScrollView>

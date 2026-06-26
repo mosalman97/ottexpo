@@ -1,5 +1,6 @@
 import { Container, Logo, SettingItem } from "@/components";
 import { MENU } from "@/constants/profileMenu";
+import { APP_VERSION, USER_NAME } from "@/data";
 import { useTheme } from "@/hooks/useTheme";
 import { colors } from "@/theme";
 import React from "react";
@@ -30,23 +31,17 @@ const ProfileScreen = () => {
 					/>
 
 					<Text className="mt-6 mb-4 text-[20px] font-bold text-white">
-						Mike John
+						{USER_NAME}
 					</Text>
 
-					<Text
-						style={{
-							fontSize: 9,
-							color: "#B8AFC3",
-							letterSpacing: 2,
-						}}
-					>
+					<Text className="text-[12px] text-[#B8AFC3]">
 						SWITCH PROFILE
 					</Text>
 				</View>
 
 				{/* Menu */}
 				<View className="gap-5 px-5 mt-10">
-					{MENU.map((item, index) => (
+					{MENU.map((item) => (
 						<SettingItem
 							key={item.id}
 							title={item.title}
@@ -62,14 +57,7 @@ const ProfileScreen = () => {
 				{/* Footer */}
 				<View className="items-center mt-12">
 					<Logo />
-					<Text
-						style={{
-							color: "#9F97AA",
-							marginTop: 8,
-						}}
-					>
-						Version 1.0.1 (1)
-					</Text>
+					<Text className="text-white mt-[8px]">{APP_VERSION}</Text>
 				</View>
 			</ScrollView>
 		</Container>

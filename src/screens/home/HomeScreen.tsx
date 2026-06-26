@@ -1,8 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { FlatList, SectionList, StatusBar, View } from "react-native";
-import { Text } from "react-native-paper";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-
 import {
 	BannerSlider,
 	ChannelItemSkeleton,
@@ -16,6 +11,10 @@ import { useTheme } from "@/hooks/useTheme";
 import { fetchBannerData, fetchHomeData } from "@/services/mockApi";
 import { BannerItem, ChannelSection as Section } from "@/types";
 import { Skeleton } from "moti/skeleton";
+import React, { useCallback, useEffect, useState } from "react";
+import { FlatList, SectionList, View } from "react-native";
+import { Text } from "react-native-paper";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
 	const { isDark, colors } = useTheme();
@@ -30,19 +29,87 @@ export default function HomeScreen() {
 		loadData();
 	}, []);
 
-	const loadData = async () => {
+	const loadData = useCallback(async () => {
 		setLoading(true);
 		try {
 			const sections = await fetchHomeData();
 			const banners = await fetchBannerData();
 			setSections(sections);
 			setBanners(banners);
-		} catch (error: any) {
-			setError(error.message || "Something went wrong");
+		} catch (error: unknown) {
+			setError(
+				error instanceof Error ? error.message : "Something went wrong",
+			);
 		} finally {
 			setLoading(false);
 		}
-	};
+	}, []);
+
+	const renderSectionHeader = useCallback(
+		({ section }: { section: Section }) => (
+			<Text
+				variant="titleMedium"
+				className="px-4 py-4 font-bold"
+				style={{
+					fontSize: 20,
+					color: colors.text,
+				}}
+			>
+				{section.title}
+			</Text>
+		),
+		[colors.text],
+	);
+
+	const renderHeader = useCallback(() => {
+		return !loading ? (
+			<View className="px-[16px]">
+				<BannerSlider
+					height={200}
+					sliderInterval={5000}
+					style={{ overflow: "hidden" }}
+					photos={banners}
+				/>
+			</View>
+		) : (
+			<View style={{ paddingHorizontal: 16 }}>
+				<Skeleton
+					width="100%"
+					height={200}
+					radius={12}
+					colorMode={isDark ? "dark" : "light"}
+				/>
+			</View>
+		);
+	}, [loading, banners, isDark]);
+
+	const renderEmptyItem = () => null;
+
+	const renderSectionFooter = useCallback(
+		({ section }: { section: Section }) => {
+			if (loading) {
+				return (
+					<View className="mb-6">
+						<FlatList
+							horizontal
+							data={SKELETON_SECTIONS}
+							keyExtractor={(item) => item.title}
+							renderItem={() => <ChannelItemSkeleton />}
+							showsHorizontalScrollIndicator={false}
+							contentContainerStyle={{ paddingHorizontal: 16 }}
+							initialNumToRender={5}
+							maxToRenderPerBatch={5}
+							windowSize={3}
+							removeClippedSubviews
+						/>
+					</View>
+				);
+			}
+
+			return <ChannelSection section={section} />;
+		},
+		[loading],
+	);
 
 	if (error) {
 		return (
@@ -58,10 +125,6 @@ export default function HomeScreen() {
 
 	return (
 		<Container>
-			<StatusBar
-				barStyle="light-content"
-				backgroundColor={colors.background}
-			/>
 			<View
 				className="items-center justify-center px-4 pb-3"
 				style={{ paddingTop: insets.top + 10 }}
@@ -76,64 +139,15 @@ export default function HomeScreen() {
 				contentContainerStyle={{
 					paddingTop: 12,
 				}}
-				renderSectionHeader={({ section }) => (
-					<Text
-						variant="titleMedium"
-						className="px-4 py-4 font-bold"
-						style={{
-							fontSize: 20,
-							color: colors.text,
-						}}
-					>
-						{section.title}
-					</Text>
-				)}
-				renderItem={() => null}
-				renderSectionFooter={({ section }) => {
-					if (loading) {
-						return (
-							<View className="mb-6">
-								<FlatList
-									horizontal
-									data={Array.from({ length: 8 }, (_, i) => ({
-										id: `skeleton-${i}`,
-									}))}
-									keyExtractor={(item) => item.id}
-									renderItem={() => <ChannelItemSkeleton />}
-									showsHorizontalScrollIndicator={false}
-									contentContainerStyle={{
-										paddingHorizontal: 16,
-									}}
-								/>
-							</View>
-						);
-					}
-
-					return <ChannelSection section={section} />;
-				}}
-				ListHeaderComponent={() => (
-					<>
-						{!loading ? (
-							<View className="px-[16px]">
-								<BannerSlider
-									height={200}
-									sliderInterval={5000}
-									style={{ overflow: "hidden" }}
-									photos={banners}
-								/>
-							</View>
-						) : (
-							<View style={{ paddingHorizontal: 16 }}>
-								<Skeleton
-									width="100%"
-									height={200}
-									radius={12}
-									colorMode={isDark ? "dark" : "light"}
-								/>
-							</View>
-						)}
-					</>
-				)}
+				renderSectionHeader={renderSectionHeader}
+				renderItem={renderEmptyItem}
+				renderSectionFooter={renderSectionFooter}
+				ListHeaderComponent={renderHeader}
+				initialNumToRender={4}
+				maxToRenderPerBatch={4}
+				windowSize={5}
+				removeClippedSubviews
+				updateCellsBatchingPeriod={50}
 			/>
 		</Container>
 	);

@@ -1,6 +1,10 @@
 import { BannerItem, ChannelSection } from "@/types";
 
 
+export const USER_NAME = "Mike John";
+export const APP_VERSION = "Version 1.0.1 (1)";
+export const MORE_ITEMS = [1, 2, 3, 4, 5];
+
 export const SKELETON_SECTIONS = [
 	{ title: "Popular", data: [] },
 	{ title: "Trending", data: [] },
