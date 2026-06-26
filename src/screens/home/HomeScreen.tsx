@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, SectionList, View } from "react-native";
+import { FlatList, SectionList, StatusBar, View } from "react-native";
 import { Text } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -14,12 +14,11 @@ import {
 import { SKELETON_SECTIONS } from "@/data";
 import { useTheme } from "@/hooks/useTheme";
 import { fetchBannerData, fetchHomeData } from "@/services/mockApi";
-import { colors } from "@/theme";
 import { BannerItem, ChannelSection as Section } from "@/types";
 import { Skeleton } from "moti/skeleton";
 
 export default function HomeScreen() {
-	const { isDark } = useTheme();
+	const { isDark, colors } = useTheme();
 	const insets = useSafeAreaInsets();
 	const [loading, setLoading] = useState(true);
 	const [sections, setSections] = useState<Section[]>([]);
@@ -59,6 +58,10 @@ export default function HomeScreen() {
 
 	return (
 		<Container>
+			<StatusBar
+				barStyle="light-content"
+				backgroundColor={colors.background}
+			/>
 			<View
 				className="items-center justify-center px-4 pb-3"
 				style={{ paddingTop: insets.top + 10 }}
@@ -79,7 +82,7 @@ export default function HomeScreen() {
 						className="px-4 py-4 font-bold"
 						style={{
 							fontSize: 20,
-							color: isDark ? colors.white : colors.black,
+							color: colors.text,
 						}}
 					>
 						{section.title}

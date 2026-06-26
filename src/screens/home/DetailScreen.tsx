@@ -1,4 +1,5 @@
 import { Container } from "@/components";
+import { useTheme } from "@/hooks/useTheme";
 import { colors } from "@/theme";
 import { ChannelItemProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
@@ -10,14 +11,16 @@ import {
 	Image,
 	ScrollView,
 	StatusBar,
+	Text,
 	TouchableOpacity,
 	View,
 } from "react-native";
-import { Button, Chip, Text } from "react-native-paper";
+import { Button, Chip } from "react-native-paper";
 
 const HEADER_HEIGHT = 300;
 
 export default function DetailScreen() {
+	const { isDark } = useTheme();
 	const route = useRoute();
 	const navigation = useNavigation();
 
@@ -37,24 +40,13 @@ export default function DetailScreen() {
 		<Container>
 			<StatusBar barStyle="light-content" />
 			<Animated.View
-				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					right: 0,
-					height: 90,
-					backgroundColor: "#111",
-					opacity,
-					zIndex: 99,
-					justifyContent: "flex-end",
-					paddingHorizontal: 20,
-					paddingBottom: 15,
-				}}
+				className="absolute left-0 right-0 top-0 z-50 h-[90px] justify-end bg-[#111] px-5 pb-[15px]"
+				style={{ opacity }}
+				pointerEvents="none"
 			>
-				<Text variant="titleMedium" style={{ color: colors.ltpink }}>
-					{movie.title}
-				</Text>
+				<Text style={{ color: colors.ltpink }}>{movie.title}</Text>
 			</Animated.View>
+
 			<Animated.ScrollView
 				showsVerticalScrollIndicator={false}
 				scrollEventThrottle={16}
@@ -63,36 +55,18 @@ export default function DetailScreen() {
 					{ useNativeDriver: false },
 				)}
 			>
-				<View style={{ height: HEADER_HEIGHT }}>
+				<View className="relative" style={{ height: HEADER_HEIGHT }}>
 					<Image
 						source={{ uri: movie.image }}
-						style={{
-							width: "100%",
-							height: HEADER_HEIGHT,
-						}}
+						className="w-full h-full"
 					/>
 
 					<LinearGradient
 						colors={["transparent", "#111"]}
-						style={{
-							position: "absolute",
-							bottom: 0,
-							left: 0,
-							right: 0,
-							height: 180,
-						}}
+						className="absolute bottom-0 left-0 right-0 h-[180px]"
 					/>
 
-					<View
-						style={{
-							position: "absolute",
-							top: 50,
-							left: 20,
-							right: 20,
-							flexDirection: "row",
-							justifyContent: "space-between",
-						}}
-					>
+					<View className="absolute left-5 right-5 top-[50px] flex-row items-center justify-between">
 						<TouchableOpacity
 							onPress={() => {
 								navigation.goBack();
@@ -105,7 +79,7 @@ export default function DetailScreen() {
 							/>
 						</TouchableOpacity>
 
-						<View style={{ flexDirection: "row", gap: 20 }}>
+						<View className="flex-row gap-5">
 							<TouchableOpacity>
 								<Ionicons
 									name="heart-sharp"
@@ -113,6 +87,7 @@ export default function DetailScreen() {
 									color="red"
 								/>
 							</TouchableOpacity>
+
 							<TouchableOpacity>
 								<Ionicons
 									name="ellipsis-vertical"
@@ -124,27 +99,17 @@ export default function DetailScreen() {
 					</View>
 				</View>
 
-				<View style={{ padding: 20 }}>
-					<Text
-						variant="headlineMedium"
-						style={{ color: "white", fontWeight: "700" }}
-					>
+				<View className="p-5">
+					<Text className={`font-bold text-white`}>
 						{movie.title}
 					</Text>
 
-					<Text style={{ color: "#999", marginTop: 6 }}>
+					<Text className="mt-1.5 text-[#999]">
 						{movie.year} • {movie.duration} • ⭐ {movie.rating}
 					</Text>
 
-					<View
-						style={{
-							flexDirection: "row",
-							flexWrap: "wrap",
-							marginTop: 16,
-							gap: 8,
-						}}
-					>
-						{movie?.genre?.map((g) => (
+					<View className="flex-row flex-wrap gap-2 mt-4">
+						{movie.genre?.map((g) => (
 							<Chip key={g}>{g}</Chip>
 						))}
 
@@ -155,49 +120,33 @@ export default function DetailScreen() {
 						{movie.isPremium && <Chip icon="crown">Premium</Chip>}
 					</View>
 
-					<Button
-						mode="contained"
-						icon="play"
-						style={{ marginTop: 24 }}
-					>
-						Play Now
+					<Button mode="contained" icon="play" className="mt-6">
+						<Text
+							style={{
+								color: isDark ? colors.white : colors.black,
+							}}
+						>
+							Play Now
+						</Text>
 					</Button>
 
-					<Button
-						mode="outlined"
-						icon="download"
-						style={{ marginTop: 12 }}
-					>
-						Download
+					<Button mode="outlined" icon="download" className="mt-3">
+						<Text
+							style={{
+								color: isDark ? colors.white : colors.black,
+							}}
+						>
+							Download
+						</Text>
 					</Button>
 
-					<Text
-						variant="titleMedium"
-						style={{
-							color: "white",
-							marginTop: 30,
-							marginBottom: 10,
-						}}
-					>
-						About
-					</Text>
+					<Text className="mb-2.5 mt-[30px] text-white">About</Text>
 
-					<Text
-						style={{
-							color: "#bbb",
-							lineHeight: 24,
-						}}
-					>
+					<Text className="leading-6 text-[#bbb]">
 						{movie.description}
 					</Text>
-					<Text
-						variant="titleMedium"
-						style={{
-							color: "white",
-							marginTop: 35,
-							marginBottom: 15,
-						}}
-					>
+
+					<Text className="mb-[15px] mt-[35px] text-white">
 						More Like This
 					</Text>
 
@@ -209,17 +158,12 @@ export default function DetailScreen() {
 							<Image
 								key={item}
 								source={{ uri: movie.image }}
-								style={{
-									width: 130,
-									height: 190,
-									borderRadius: 10,
-									marginRight: 14,
-								}}
+								className="mr-[14px] h-[190px] w-[130px] rounded-xl"
 							/>
 						))}
 					</ScrollView>
 
-					<View style={{ height: 60 }} />
+					<View className="h-[60px]" />
 				</View>
 			</Animated.ScrollView>
 		</Container>

@@ -17,7 +17,13 @@ export default function HomeStackNavigator() {
 			}}
 		>
 			<Stack.Screen name="HomeStack" component={HomeScreen} />
-			<Stack.Screen name="DetailScreen" component={DetailScreen} />
+			<Stack.Screen
+				name="DetailScreen"
+				component={DetailScreen}
+				options={{
+					animation: "fade",
+				}}
+			/>
 		</Stack.Navigator>
 	);
 }
