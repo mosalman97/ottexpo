@@ -1,14 +1,15 @@
-import React from "react";
-import { FlatList, View } from "react-native";
-
 import { ChannelItem } from "@/components";
 import { ChannelSection as Section } from "@/types";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { FlatList, View } from "react-native";
 
 interface Props {
 	section: Section;
 }
 
 export const ChannelSection = ({ section }: Props) => {
+	const navigation = useNavigation<any>();
 	return (
 		<View className="mb-6">
 			<FlatList
@@ -19,7 +20,9 @@ export const ChannelSection = ({ section }: Props) => {
 					<ChannelItem
 						{...item}
 						onPress={() => {
-							console.log("Helo ");
+							navigation.navigate("DetailScreen", {
+								movie: item,
+							});
 						}}
 					/>
 				)}

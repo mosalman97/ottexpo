@@ -3,7 +3,7 @@ import { Dimensions, Image } from "react-native";
 import { Card, Text } from "react-native-paper";
 
 import { useTheme } from "@/hooks/useTheme";
-import { ChannelItemProps } from "@/types"
+import { ChannelItemProps } from "@/types";
 
 const { width } = Dimensions.get("window");
 
@@ -32,7 +32,7 @@ export const ChannelItem: React.FC<ChannelItemProps> = ({
 			<Image
 				source={{ uri: image }}
 				resizeMode="cover"
-				className="w-full h-24 rounded-xl"
+				className="w-full h-32 rounded-xl"
 			/>
 
 			<Text

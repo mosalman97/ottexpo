@@ -1,7 +1,6 @@
 export interface BannerItem {
 	id: string;
 	image: string;
-	title: string;
 }
 
 export interface ContentItem {
@@ -12,26 +11,33 @@ export interface ContentItem {
 
 export interface HomeScreenData {
 	banners: BannerItem[];
-	featuredChannels: ChannelItem[];
-	recentlyAdded: ContentItem[];
 }
 
-export interface Channel {
-	id: string;
-	title: string;
-	subtitle: string;
-	image: string;
-}
-
-export interface ChannelSection {
-	title: string;
-	data: Channel[];
-}
+// export interface Channel {
+// 	id: string;
+// 	title: string;
+// 	subtitle: string;
+// 	image: string;
+// }
 
 export interface ChannelItemProps {
 	id: string;
 	title: string;
 	subtitle: string;
 	image: string;
-	onPress: () => void;
+	year?: number;
+	duration?: string;
+	rating?: number;
+	genre?: string[];
+	quality?: "HD" | "Full HD" | "4K";
+	language?: string;
+	ageRating?: string;
+	isPremium?: boolean;
+	description?: string;
+	onPress?: () => void;
+}
+
+export interface ChannelSection {
+	title: string;
+	data: ChannelItemProps[];
 }

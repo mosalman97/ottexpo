@@ -1,19 +1,14 @@
-import { NavigationProp } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { SectionList } from "react-native";
+import { SectionList, View } from "react-native";
 import { Text } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { BannerSlider, ChannelSection, Container } from "@/components";
+import { BannerSlider, ChannelSection, Container, Logo } from "@/components";
 import { banners } from "@/data";
 import { fetchHomeData } from "@/services/mockApi";
 import { ChannelSection as Section } from "@/types";
 
-interface RouterProps {
-	navigation: NavigationProp<any, any>;
-}
-
-export default function HomeScreen({ navigation }: RouterProps) {
+export default function HomeScreen() {
 	const insets = useSafeAreaInsets();
 	const [loading, setLoading] = useState(true);
 	const [sections, setSections] = useState<Section[]>([]);
@@ -49,13 +44,19 @@ export default function HomeScreen({ navigation }: RouterProps) {
 
 	return (
 		<Container>
+			<View
+				className="items-center justify-center px-4 pb-3"
+				style={{ paddingTop: insets.top + 10 }}
+			>
+				<Logo />
+			</View>
 			<SectionList
 				sections={sections}
 				keyExtractor={(item) => item.id}
 				stickySectionHeadersEnabled={false}
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={{
-					paddingTop: insets.top + 20,
+					paddingTop: 12,
 				}}
 				renderSectionHeader={({ section }) => (
 					<Text
@@ -70,12 +71,14 @@ export default function HomeScreen({ navigation }: RouterProps) {
 					<ChannelSection section={section} />
 				)}
 				ListHeaderComponent={() => (
-					<BannerSlider
-						height={200}
-						sliderInterval={5000}
-						style={{ overflow: "hidden" }}
-						photos={banners}
-					/>
+					<View className="px-[16px]">
+						<BannerSlider
+							height={200}
+							sliderInterval={5000}
+							style={{ overflow: "hidden" }}
+							photos={banners}
+						/>
+					</View>
 				)}
 			/>
 		</Container>
