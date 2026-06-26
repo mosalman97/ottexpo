@@ -1,4 +1,5 @@
 import { Container } from "@/components";
+import { colors } from "@/theme";
 import { ChannelItemProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -50,11 +51,10 @@ export default function DetailScreen() {
 					paddingBottom: 15,
 				}}
 			>
-				{/* <Text variant="titleMedium" style={{ color: "#0000" }}>
+				<Text variant="titleMedium" style={{ color: colors.ltpink }}>
 					{movie.title}
-				</Text> */}
+				</Text>
 			</Animated.View>
-
 			<Animated.ScrollView
 				showsVerticalScrollIndicator={false}
 				scrollEventThrottle={16}
@@ -106,16 +106,20 @@ export default function DetailScreen() {
 						</TouchableOpacity>
 
 						<View style={{ flexDirection: "row", gap: 20 }}>
-							<Ionicons
-								name="heart-outline"
-								size={24}
-								color="white"
-							/>
-							<Ionicons
-								name="ellipsis-vertical"
-								size={24}
-								color="white"
-							/>
+							<TouchableOpacity>
+								<Ionicons
+									name="heart-sharp"
+									size={24}
+									color="red"
+								/>
+							</TouchableOpacity>
+							<TouchableOpacity>
+								<Ionicons
+									name="ellipsis-vertical"
+									size={24}
+									color="white"
+								/>
+							</TouchableOpacity>
 						</View>
 					</View>
 				</View>
@@ -186,58 +190,6 @@ export default function DetailScreen() {
 					>
 						{movie.description}
 					</Text>
-
-					<Text
-						variant="titleMedium"
-						style={{
-							color: "white",
-							marginTop: 30,
-							marginBottom: 15,
-						}}
-					>
-						Cast
-					</Text>
-
-					<ScrollView
-						horizontal
-						showsHorizontalScrollIndicator={false}
-					>
-						{[
-							"Brad Pitt",
-							"Morgan Freeman",
-							"Kevin Spacey",
-							"Gwyneth Paltrow",
-						].map((item) => (
-							<View
-								key={item}
-								style={{
-									marginRight: 16,
-									alignItems: "center",
-								}}
-							>
-								<View
-									style={{
-										width: 70,
-										height: 70,
-										borderRadius: 35,
-										backgroundColor: "#333",
-									}}
-								/>
-								<Text
-									style={{
-										color: "#fff",
-										width: 70,
-										textAlign: "center",
-										marginTop: 8,
-										fontSize: 12,
-									}}
-								>
-									{item}
-								</Text>
-							</View>
-						))}
-					</ScrollView>
-
 					<Text
 						variant="titleMedium"
 						style={{

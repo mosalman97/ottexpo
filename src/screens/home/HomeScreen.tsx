@@ -1,46 +1,61 @@
 import React, { useEffect, useState } from "react";
-import { SectionList, View } from "react-native";
+import { FlatList, SectionList, View } from "react-native";
 import { Text } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { BannerSlider, ChannelSection, Container, Logo } from "@/components";
-import { banners } from "@/data";
-import { fetchHomeData } from "@/services/mockApi";
-import { ChannelSection as Section } from "@/types";
+import {
+	BannerSlider,
+	ChannelItemSkeleton,
+	ChannelSection,
+	Container,
+	ErrorState,
+	Logo,
+} from "@/components";
+import { SKELETON_SECTIONS } from "@/data";
+import { useTheme } from "@/hooks/useTheme";
+import { fetchBannerData, fetchHomeData } from "@/services/mockApi";
+import { colors } from "@/theme";
+import { BannerItem, ChannelSection as Section } from "@/types";
+import { Skeleton } from "moti/skeleton";
 
 export default function HomeScreen() {
+	const { isDark } = useTheme();
 	const insets = useSafeAreaInsets();
 	const [loading, setLoading] = useState(true);
 	const [sections, setSections] = useState<Section[]>([]);
+	const [banners, setBanners] = useState<BannerItem[]>([]);
 	const [error, setError] = useState("");
+	const displaySections = loading ? SKELETON_SECTIONS : sections;
 
 	useEffect(() => {
 		loadData();
 	}, []);
 
 	const loadData = async () => {
+		setLoading(true);
 		try {
-			setLoading(true);
-			const data = await fetchHomeData();
-			setSections(data);
-		} catch (e: any) {
-			setError(e.message);
+			const sections = await fetchHomeData();
+			const banners = await fetchBannerData();
+			setSections(sections);
+			setBanners(banners);
+		} catch (error: any) {
+			setError(error.message || "Something went wrong");
 		} finally {
 			setLoading(false);
 		}
 	};
 
-	// if (loading) {
-	// 	return <SkeletonHome />;
-	// }
-
-	// if (error) {
-	// 	return (
-	// 		<View className="items-center justify-center flex-1">
-	// 			<Text>{error}</Text>
-	// 		</View>
-	// 	);
-	// }
+	if (error) {
+		return (
+			<Container>
+				<ErrorState
+					title="Failed to load Home"
+					message={error}
+					onRetry={loadData}
+				/>
+			</Container>
+		);
+	}
 
 	return (
 		<Container>
@@ -51,7 +66,7 @@ export default function HomeScreen() {
 				<Logo />
 			</View>
 			<SectionList
-				sections={sections}
+				sections={displaySections}
 				keyExtractor={(item) => item.id}
 				stickySectionHeadersEnabled={false}
 				showsVerticalScrollIndicator={false}
@@ -60,25 +75,61 @@ export default function HomeScreen() {
 				}}
 				renderSectionHeader={({ section }) => (
 					<Text
-						variant="headlineSmall"
+						variant="titleMedium"
 						className="px-4 py-4 font-bold"
+						style={{
+							fontSize: 20,
+							color: isDark ? colors.white : colors.black,
+						}}
 					>
 						{section.title}
 					</Text>
 				)}
 				renderItem={() => null}
-				renderSectionFooter={({ section }) => (
-					<ChannelSection section={section} />
-				)}
+				renderSectionFooter={({ section }) => {
+					if (loading) {
+						return (
+							<View className="mb-6">
+								<FlatList
+									horizontal
+									data={Array.from({ length: 8 }, (_, i) => ({
+										id: `skeleton-${i}`,
+									}))}
+									keyExtractor={(item) => item.id}
+									renderItem={() => <ChannelItemSkeleton />}
+									showsHorizontalScrollIndicator={false}
+									contentContainerStyle={{
+										paddingHorizontal: 16,
+									}}
+								/>
+							</View>
+						);
+					}
+
+					return <ChannelSection section={section} />;
+				}}
 				ListHeaderComponent={() => (
-					<View className="px-[16px]">
-						<BannerSlider
-							height={200}
-							sliderInterval={5000}
-							style={{ overflow: "hidden" }}
-							photos={banners}
-						/>
-					</View>
+					<>
+						{!loading ? (
+							<View className="px-[16px]">
+								<BannerSlider
+									height={200}
+									sliderInterval={5000}
+									style={{ overflow: "hidden" }}
+									photos={banners}
+								/>
+							</View>
+						) : (
+							<View style={{ paddingHorizontal: 16 }}>
+								<Skeleton
+									width="100%"
+									height={200}
+									radius={12}
+									colorMode={isDark ? "dark" : "light"}
+								/>
+							</View>
+						)}
+					</>
 				)}
 			/>
 		</Container>

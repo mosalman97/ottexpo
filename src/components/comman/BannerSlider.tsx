@@ -1,6 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
+	ActivityIndicator,
 	Dimensions,
 	FlatList,
 	Image,
@@ -22,6 +23,7 @@ export const BannerSlider = ({
 	style = {} as any,
 }) => {
 	const [sliderIndex, setSliderIndex] = useState(0);
+	const [loading, setLoading] = useState(true);
 
 	let flatListRef = useRef<FlatList>(null);
 	let sliderIndexRef = useRef(0);
@@ -67,9 +69,18 @@ export const BannerSlider = ({
 							onPress={item.onPress ? item.onPress : () => {}}
 							style={{ width, height }}
 						>
+							{loading && (
+								<ActivityIndicator
+									size="large"
+									color="#fff"
+									style={StyleSheet.absoluteFillObject}
+								/>
+							)}
 							<Image
 								style={styles.imgStyle}
 								source={{ uri: item.image }}
+								onLoadStart={() => setLoading(true)}
+								onLoadEnd={() => setLoading(false)}
 							/>
 						</TouchableOpacity>
 					);

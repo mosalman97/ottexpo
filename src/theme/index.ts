@@ -1,4 +1,2 @@
-export * from './colors';
-export * from "./constants";
-export * from './images';
-
+export * from "./colors";
+export * from "./images";

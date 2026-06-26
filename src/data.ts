@@ -1,5 +1,12 @@
 import { BannerItem, ChannelSection } from "@/types";
 
+
+export const SKELETON_SECTIONS = [
+	{ title: "Popular", data: [] },
+	{ title: "Trending", data: [] },
+	{ title: "For You", data: [] },
+];
+
 export const banners: BannerItem[] = [
 	{
 		id: "1",

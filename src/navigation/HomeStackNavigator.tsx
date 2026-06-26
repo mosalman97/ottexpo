@@ -13,6 +13,7 @@ export default function HomeStackNavigator() {
 			screenOptions={{
 				headerShown: false,
 				animation: "slide_from_right",
+				presentation: "card",
 			}}
 		>
 			<Stack.Screen name="HomeStack" component={HomeScreen} />
