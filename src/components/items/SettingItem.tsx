@@ -1,28 +1,12 @@
+import { SettingItemProps } from "@/types";
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { Switch } from "react-native-switch";
-
 import { colors, images } from "../../theme";
 
-type SettingItemProps = {
-	className?: string;
-	onPress?: () => void;
-	title?: string;
-	subtitle?: string;
-	icon?: any;
-	showSwitch?: boolean;
-	switchEnabled?: boolean;
-	onSwitchChange?: (value: boolean) => void;
-	hideArrow?: boolean;
-	reverse?: boolean;
-	children?: React.ReactNode;
-	bgColor?: string;
-};
-
-export const SettingItem = ({
+const SettingItemComponent = ({
 	className = "",
 	title = "",
-	subtitle = "",
 	icon,
 	showSwitch = false,
 	switchEnabled = false,
@@ -52,15 +36,9 @@ export const SettingItem = ({
 					)}
 
 					<View className={reverse ? "flex-1 items-end" : ""}>
-						<Text className="text-base font-semibold text-white">
+						<Text className="text-[16px] font-semibold text-white">
 							{title}
 						</Text>
-
-						{!!subtitle && (
-							<Text className="mt-1 text-xs text-gray-400">
-								{subtitle}
-							</Text>
-						)}
 					</View>
 				</View>
 
@@ -86,3 +64,5 @@ export const SettingItem = ({
 		</View>
 	);
 };
+
+export const SettingItem = React.memo(SettingItemComponent);

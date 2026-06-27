@@ -1,9 +1,8 @@
 // BannerSliderSkeleton.tsx
 
+import { deviceWidth } from "@/constants/dimensions";
 import React from "react";
-import { Dimensions, StyleSheet, View } from "react-native";
-
-const deviceWidth = Dimensions.get("window").width;
+import { StyleSheet, View } from "react-native";
 
 type Props = {
 	width?: number;

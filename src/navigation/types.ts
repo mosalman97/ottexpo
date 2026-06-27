@@ -1,3 +1,5 @@
+import { ChannelItemProps } from "@/types";
+
 export type RootStackParamList = {
 	MainTabs: undefined;
 };
@@ -10,6 +12,6 @@ export type BottomTabParamList = {
 export type HomeStackParamList = {
 	HomeStack: undefined;
 	DetailScreen: {
-		movieId: string;
+		movie: ChannelItemProps;
 	};
 };

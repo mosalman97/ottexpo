@@ -1,56 +1,166 @@
-# Welcome to your Expo app 👋
+# OTTExpo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native streaming app UI built with Expo for iOS and Android.
 
-## Get started
+## What is this?
 
-1. Install dependencies
+OTTExpo is a mobile app that looks like Netflix or Disney+. It shows featured content in a carousel, organized Movies, and a user profile page.
 
-   ```bash
-   npm install
-   ```
+## Features
 
-2. Start the app
+- **Home Screen** - Banner slider and channel recommendations
+- **Profile Screen** - User profile with dark/light theme toggle
+- **Theme Support** - Switch between dark and light modes
+- **iOS & Android** - Native mobile experience on both platforms
 
-   ```bash
-   npx expo start
-   ```
+## Tech Stack
 
-In the output, you'll find options to open the app in a
+- React Native
+- Expo
+- TypeScript
+- NativeWind (Tailwind CSS)
+- Zustand (State Management)
+- React Native Paper
+- React Navigation
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Installation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1. Clone the repo
 
-## Get a fresh project
+    ```bash
+    git clone <repo-url>
+    cd ottexpo
+    ```
 
-When you're ready, run:
+2. Install dependencies
+
+    ```bash
+    npm install
+    ```
+
+3. Start the app
+    ```bash
+    npm start
+    ```
+
+## Running on Mobile
+
+### Android
+
+Option 1: Using Android Emulator
 
 ```bash
-npm run reset-project
+npm run android
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Option 2: Using Expo Go
 
-### Other setup steps
+- Install Expo Go from Google Play
+- Run `npm start`
+- Scan QR code with Expo Go app
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+### iOS
 
-## Learn more
+Option 1: Using iOS Simulator
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm run ios
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Option 2: Using Expo Go
 
-## Join the community
+- Install Expo Go from App Store
+- Run `npm start`
+- Scan QR code with Expo Go app
 
-Join our community of developers creating universal apps.
+## Project Structure
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```
+ottexpo/
+├── src/
+│   ├── screens/         # App pages (Home, Profile)
+│   ├── components/      # Reusable UI components
+│   ├── navigation/      # App navigation setup
+│   ├── theme/           # Colors and design tokens,
+│   ├──assets/           # Images and icons
+│   ├── store/           # App state (Zustand)
+│   └── services/        # API calls
+└── App.tsx              # Main app file
+```
+
+## Screenshots
+
+### Home Screen
+
+<img src="./src/assets/screen-home.png" width="300" alt="Home Screen"/>
+
+### Detail Screen
+
+<img src="./src/assets/screen-detail.png" width="300" alt="Home Screen"/>
+
+### Profile Screen
+
+<img src="./src/assets/screen-profile.png" width="300" alt="Home Screen"/>
+
+## Available Scripts
+
+```bash
+npm start              # Start development server
+npm run android        # Run on Android emulator
+npm run ios           # Run on iOS simulator
+npm run lint          # Check code quality
+npm run reset-project # Reset to initial state
+```
+
+## Screenshots
+
+### Home Screen
+
+<img src="Screenshot_1782536492.png" width="300" alt="Home Screen">
+
+**Features shown:**
+
+- TellyGO app branding
+- Banner carousel with featured content
+- Top Rated Movies section with 3 movie cards
+- Oscar Winners section with 3 movie cards
+- Trending Now section
+- Bottom tab navigation (Home & Profile)
+
+## Environment Setup
+
+No special setup required. The app uses mock data by default.
+
+## Build for Production
+
+### Android Build
+
+```bash
+eas build --platform android
+```
+
+### iOS Build
+
+```bash
+eas build --platform ios
+```
+
+## Requirements
+
+- Node.js (v16 or higher)
+- npm or yarn
+- Android Studio (for Android development)
+- Xcode (for iOS development)
+- Expo CLI (optional)
+
+## License
+
+MIT License - See LICENSE file for details
+
+## Support
+
+For issues or questions, please create an issue in the repository.
+
+---
+
+Made with React Native & Expo ❤️

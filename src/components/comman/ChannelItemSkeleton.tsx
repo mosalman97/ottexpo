@@ -1,14 +1,14 @@
 import { Skeleton } from "moti/skeleton";
 import React from "react";
-import { Dimensions, View } from "react-native";
+import { View } from "react-native";
 
 import { useTheme } from "@/hooks/useTheme";
 
-const { width } = Dimensions.get("window");
+import { deviceWidth } from "@/constants/dimensions";
 
 const SPACING = 5;
 const GAP = 12;
-const CARD_WIDTH = (width - SPACING * 2 - GAP * 2) / 3;
+const CARD_WIDTH = (deviceWidth - SPACING * 2 - GAP * 2) / 3;
 
 export const ChannelItemSkeleton = () => {
 	const { isDark } = useTheme();

@@ -1,23 +1,21 @@
-import React from "react";
-import { Dimensions, Image } from "react-native";
-import { Card, Text } from "react-native-paper";
-
-import { useTheme } from "@/hooks/useTheme";
+import { deviceWidth } from "@/constants/dimensions";
 import { ChannelItemProps } from "@/types";
-
-const { width } = Dimensions.get("window");
+import React from "react";
+import { Image, Text } from "react-native";
+import { Card } from "react-native-paper";
 
 const SPACING = 5;
 const GAP = 12;
-const CARD_WIDTH = (width - SPACING * 2 - GAP * 2) / 3;
+const COLUMNS = 3;
 
-export const ChannelItem: React.FC<ChannelItemProps> = ({
+const ChannelItemComponent: React.FC<ChannelItemProps> = ({
 	image,
 	title,
 	subtitle,
 	onPress,
 }) => {
-	const { colors } = useTheme();
+	const cardWidth =
+		(deviceWidth - SPACING * 2 - GAP * (COLUMNS - 1)) / COLUMNS;
 
 	return (
 		<Card
@@ -25,7 +23,7 @@ export const ChannelItem: React.FC<ChannelItemProps> = ({
 			onPress={onPress}
 			className="mr-3"
 			style={{
-				width: CARD_WIDTH,
+				width: cardWidth,
 				backgroundColor: "transparent",
 			}}
 		>
@@ -36,21 +34,20 @@ export const ChannelItem: React.FC<ChannelItemProps> = ({
 			/>
 
 			<Text
-				variant="titleSmall"
 				numberOfLines={1}
-				className="mt-2"
-				style={{ color: colors.text }}
+				className="mt-2 text-[15px] font-semibold text-white"
 			>
 				{title}
 			</Text>
 
 			<Text
-				variant="bodySmall"
 				numberOfLines={1}
-				style={{ color: colors.text + "99" }}
+				className="mt-0.5 text-[12px] font-normal text-grey-light"
 			>
 				{subtitle}
 			</Text>
 		</Card>
 	);
 };
+
+export const ChannelItem = React.memo(ChannelItemComponent);

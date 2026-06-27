@@ -1,8 +1,9 @@
+import { deviceWidth } from "@/constants/dimensions";
+import { BannerSliderProps } from "@/types";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
 	ActivityIndicator,
-	Dimensions,
 	FlatList,
 	Image,
 	StyleSheet,
@@ -12,7 +13,6 @@ import {
 import { colors, images } from "../../theme";
 
 let interval = null as any;
-const deviceWidth = Dimensions.get("window").width;
 
 export const BannerSlider = ({
 	photos = [] as any,
@@ -21,7 +21,7 @@ export const BannerSlider = ({
 	sliderInterval = 3000,
 	autoPlay = true,
 	style = {} as any,
-}) => {
+}: BannerSliderProps) => {
 	const [sliderIndex, setSliderIndex] = useState(0);
 	const [loading, setLoading] = useState(true);
 

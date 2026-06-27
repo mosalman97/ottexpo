@@ -1,10 +1,12 @@
 import { Container } from "@/components";
 import { MORE_ITEMS } from "@/data";
 import { useTheme } from "@/hooks/useTheme";
+import { HomeStackParamList } from "@/navigation/types";
 import { colors } from "@/theme";
 import { ChannelItemProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useCallback, useRef } from "react";
 import {
@@ -18,12 +20,19 @@ import {
 } from "react-native";
 import { Button, Chip } from "react-native-paper";
 
+type DetailRouteProp = RouteProp<HomeStackParamList, "DetailScreen">;
+
+type DetailNavigationProp = NativeStackNavigationProp<
+	HomeStackParamList,
+	"DetailScreen"
+>;
+
 const HEADER_HEIGHT = 300;
 
 export default function DetailScreen() {
 	const { isDark } = useTheme();
-	const route = useRoute();
-	const navigation = useNavigation();
+	const route = useRoute<DetailRouteProp>();
+	const navigation = useNavigation<DetailNavigationProp>();
 
 	const { movie } = route.params as {
 		movie: ChannelItemProps;
@@ -49,7 +58,13 @@ export default function DetailScreen() {
 				style={{ opacity }}
 				pointerEvents="none"
 			>
-				<Text style={{ color: colors.ltpink }}>{movie.title}</Text>
+				<Text
+					numberOfLines={1}
+					ellipsizeMode="tail"
+					className="text-[18px] font-semibold text-white"
+				>
+					{movie.title}
+				</Text>
 			</Animated.View>
 
 			<Animated.ScrollView
@@ -65,6 +80,7 @@ export default function DetailScreen() {
 						source={{ uri: movie.image }}
 						className="w-full h-full"
 						resizeMode="cover"
+						fadeDuration={0}
 					/>
 
 					<LinearGradient
@@ -86,7 +102,10 @@ export default function DetailScreen() {
 						</TouchableOpacity>
 
 						<View className="flex-row gap-5">
-							<TouchableOpacity>
+							<TouchableOpacity
+								accessibilityRole="button"
+								accessibilityLabel="Favorite"
+							>
 								<Ionicons
 									name="heart-sharp"
 									size={24}
@@ -94,7 +113,7 @@ export default function DetailScreen() {
 								/>
 							</TouchableOpacity>
 
-							<TouchableOpacity>
+							<TouchableOpacity accessibilityLabel="More options">
 								<Ionicons
 									name="ellipsis-vertical"
 									size={24}
@@ -106,26 +125,41 @@ export default function DetailScreen() {
 				</View>
 
 				<View className="p-5">
-					<Text className={`font-bold text-white`}>
-						{movie.title}
-					</Text>
+					{movie.title && (
+						<Text className="text-3xl font-bold text-white">
+							{movie.title}
+						</Text>
+					)}
+					{(movie.year || movie.duration || movie.rating) && (
+						<Text className="mt-2 text-[15px] text-gray-400">
+							{[
+								movie.year,
+								movie.duration,
+								movie.rating && `⭐ ${movie.rating}`,
+							]
+								.filter(Boolean)
+								.join(" • ")}
+						</Text>
+					)}
+					{(movie.genre?.length ||
+						movie.quality ||
+						movie.language ||
+						movie.ageRating ||
+						movie.isPremium) && (
+						<View className="flex-row flex-wrap gap-2 mt-4">
+							{movie.genre?.map((g) => (
+								<Chip key={g}>{g}</Chip>
+							))}
 
-					<Text className="mt-1.5 text-[#999]">
-						{movie.year} • {movie.duration} • ⭐ {movie.rating}
-					</Text>
+							{movie.quality && <Chip>{movie.quality}</Chip>}
+							{movie.language && <Chip>{movie.language}</Chip>}
+							{movie.ageRating && <Chip>{movie.ageRating}</Chip>}
 
-					<View className="flex-row flex-wrap gap-2 mt-4">
-						{movie.genre?.map((g) => (
-							<Chip key={g}>{g}</Chip>
-						))}
-
-						<Chip>{movie.quality}</Chip>
-						<Chip>{movie.language}</Chip>
-						<Chip>{movie.ageRating}</Chip>
-
-						{movie.isPremium && <Chip icon="crown">Premium</Chip>}
-					</View>
-
+							{movie.isPremium && (
+								<Chip icon="crown">Premium</Chip>
+							)}
+						</View>
+					)}
 					<Button
 						mode="contained"
 						icon="play"
@@ -143,17 +177,69 @@ export default function DetailScreen() {
 					>
 						Download
 					</Button>
-
-					<Text className="mb-2.5 mt-[30px] text-white">About</Text>
-
-					<Text className="leading-6 text-[#bbb]">
-						{movie.description}
+					<Text className="mt-8 mb-[14px] text-[22px] font-bold text-white">
+						About
 					</Text>
+					{movie.description && (
+						<Text className="text-[16px] leading-7 text-grey">
+							{movie.description}
+						</Text>
+					)}
+					<Text className="mt-8 mb-4 text-[22px] font-bold text-white">
+						Cast
+					</Text>
+					{movie?.cast?.map((actor) => (
+						<View
+							key={actor.id}
+							className="flex-row items-center mb-4"
+						>
+							{actor.image && (
+								<Image
+									source={{ uri: actor.image }}
+									className="h-[42px] w-[42px] rounded-[20px]"
+									resizeMode="cover"
+								/>
+							)}
 
-					<Text className="mb-[15px] mt-[35px] text-white">
+							<View className="flex-1 ml-4">
+								{actor.name && (
+									<Text className="text-[17px] font-semibold text-white">
+										{actor.name}
+									</Text>
+								)}
+
+								{actor.character && (
+									<Text className="mt-1 text-[14px] text-grey-light">
+										{actor.character}
+									</Text>
+								)}
+							</View>
+						</View>
+					))}
+					<Text className="mt-8 mb-4  text-[22px] font-bold text-white">
+						Crew
+					</Text>
+					{movie.crew?.map((item) => (
+						<View
+							key={item.id}
+							className="mb-5 flex-row justify-between border-b border-[#2A2A2A] pb-3"
+						>
+							{item.role && (
+								<Text className="text-[14px] text-grey">
+									{item.role}
+								</Text>
+							)}
+
+							{item.name && (
+								<Text className="text-[16px] font-semibold text-white">
+									{item.name}
+								</Text>
+							)}
+						</View>
+					))}
+					<Text className="mt-[35px] mb-[15px] text-[22px] font-bold text-white">
 						More Like This
 					</Text>
-
 					<ScrollView
 						horizontal
 						showsHorizontalScrollIndicator={false}
@@ -167,7 +253,6 @@ export default function DetailScreen() {
 							/>
 						))}
 					</ScrollView>
-
 					<View className="h-[60px]" />
 				</View>
 			</Animated.ScrollView>

@@ -1,6 +1,5 @@
 import { Container, Logo, SettingItem } from "@/components";
-import { MENU } from "@/constants/profileMenu";
-import { APP_VERSION, USER_NAME } from "@/data";
+import { APP_VERSION, MENU, USER_NAME } from "@/data";
 import { useTheme } from "@/hooks/useTheme";
 import { colors } from "@/theme";
 import React from "react";

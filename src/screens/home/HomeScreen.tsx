@@ -12,8 +12,7 @@ import { fetchBannerData, fetchHomeData } from "@/services/mockApi";
 import { BannerItem, ChannelSection as Section } from "@/types";
 import { Skeleton } from "moti/skeleton";
 import React, { useCallback, useEffect, useState } from "react";
-import { FlatList, SectionList, View } from "react-native";
-import { Text } from "react-native-paper";
+import { FlatList, SectionList, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
@@ -47,14 +46,7 @@ export default function HomeScreen() {
 
 	const renderSectionHeader = useCallback(
 		({ section }: { section: Section }) => (
-			<Text
-				variant="titleMedium"
-				className="px-4 py-4 font-bold"
-				style={{
-					fontSize: 20,
-					color: colors.text,
-				}}
-			>
+			<Text className="px-4 py-4 text-[20px] font-bold text-white">
 				{section.title}
 			</Text>
 		),

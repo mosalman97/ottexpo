@@ -1,9 +1,37 @@
+import { images } from "@/theme";
 import { BannerItem, ChannelSection } from "@/types";
-
 
 export const USER_NAME = "Mike John";
 export const APP_VERSION = "Version 1.0.1 (1)";
 export const MORE_ITEMS = [1, 2, 3, 4, 5];
+
+export const MENU = [
+	{
+		id: 1,
+		title: "Theme",
+		icon: images.icon_bell,
+	},
+	{
+		id: 2,
+		title: "App Settings",
+		icon: images.icon_settings,
+	},
+	{
+		id: 3,
+		title: "Account",
+		icon: images.icon_account,
+	},
+	{
+		id: 4,
+		title: "Favorites",
+		icon: images.icon_favor,
+	},
+	{
+		id: 5,
+		title: "Help",
+		icon: images.icon_help,
+	},
+];
 
 export const SKELETON_SECTIONS = [
 	{ title: "Popular", data: [] },
@@ -46,6 +74,64 @@ export const sections: ChannelSection[] = [
 					"Wrongly convicted of murdering his wife and her lover, banker Andy Dufresne is sentenced to life imprisonment at Shawshank State Penitentiary. Over the years he forms an unlikely friendship with fellow inmate Ellis 'Red' Redding and quietly transforms the lives of those around him through hope, patience, and resilience.",
 
 				isPremium: false,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0068646",
@@ -63,6 +149,64 @@ export const sections: ChannelSection[] = [
 					"Wrongly convicted of murdering his wife and her lover, banker Andy Dufresne is sentenced to life imprisonment at Shawshank State Penitentiary. Over the years he forms an unlikely friendship with fellow inmate Ellis 'Red' Redding and quietly transforms the lives of those around him through hope, patience, and resilience.",
 
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0468569",
@@ -80,6 +224,64 @@ export const sections: ChannelSection[] = [
 					"Wrongly convicted of murdering his wife and her lover, banker Andy Dufresne is sentenced to life imprisonment at Shawshank State Penitentiary. Over the years he forms an unlikely friendship with fellow inmate Ellis 'Red' Redding and quietly transforms the lives of those around him through hope, patience, and resilience.",
 
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0071562",
@@ -97,6 +299,64 @@ export const sections: ChannelSection[] = [
 					"Wrongly convicted of murdering his wife and her lover, banker Andy Dufresne is sentenced to life imprisonment at Shawshank State Penitentiary. Over the years he forms an unlikely friendship with fellow inmate Ellis 'Red' Redding and quietly transforms the lives of those around him through hope, patience, and resilience.",
 
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0050083",
@@ -114,6 +374,64 @@ export const sections: ChannelSection[] = [
 
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 		],
 	},
@@ -137,6 +455,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0167260",
@@ -154,6 +530,64 @@ export const sections: ChannelSection[] = [
 
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0120737",
@@ -171,6 +605,64 @@ export const sections: ChannelSection[] = [
 					"Wrongly convicted of murdering his wife and her lover, banker Andy Dufresne is sentenced to life imprisonment at Shawshank State Penitentiary. Over the years he forms an unlikely friendship with fellow inmate Ellis 'Red' Redding and quietly transforms the lives of those around him through hope, patience, and resilience.",
 
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0060196",
@@ -188,6 +680,64 @@ export const sections: ChannelSection[] = [
 
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 		],
 	},
@@ -211,6 +761,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0137523",
@@ -228,6 +836,64 @@ export const sections: ChannelSection[] = [
 					"Wrongly convicted of murdering his wife and her lover, banker Andy Dufresne is sentenced to life imprisonment at Shawshank State Penitentiary. Over the years he forms an unlikely friendship with fellow inmate Ellis 'Red' Redding and quietly transforms the lives of those around him through hope, patience, and resilience.",
 
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt1375666",
@@ -245,6 +911,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0167261",
@@ -262,6 +986,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0080684",
@@ -279,6 +1061,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0133093",
@@ -296,6 +1136,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0099685",
@@ -313,6 +1211,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0073486",
@@ -330,6 +1286,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 			{
 				id: "tt0114369",
@@ -347,6 +1361,64 @@ export const sections: ChannelSection[] = [
 				language: "English",
 				ageRating: "16+",
 				isPremium: true,
+
+				director: "Frank Darabont",
+
+				studio: "Castle Rock Entertainment",
+
+				cast: [
+					{
+						id: "1",
+						name: "Tim Robbins",
+						character: "Andy Dufresne",
+						image: "https://i.pravatar.cc/150?img=1",
+					},
+					{
+						id: "2",
+						name: "Morgan Freeman",
+						character: "Ellis 'Red' Redding",
+						image: "https://i.pravatar.cc/150?img=2",
+					},
+					{
+						id: "3",
+						name: "Bob Gunton",
+						character: "Warden Norton",
+						image: "https://i.pravatar.cc/150?img=3",
+					},
+					{
+						id: "4",
+						name: "William Sadler",
+						character: "Heywood",
+						image: "https://i.pravatar.cc/150?img=4",
+					},
+				],
+
+				crew: [
+					{
+						id: "1",
+						name: "Frank Darabont",
+						role: "Director",
+						image: "https://i.pravatar.cc/150?img=5",
+					},
+					{
+						id: "2",
+						name: "Niki Marvin",
+						role: "Producer",
+						image: "https://i.pravatar.cc/150?img=6",
+					},
+					{
+						id: "3",
+						name: "Stephen King",
+						role: "Writer",
+						image: "https://i.pravatar.cc/150?img=7",
+					},
+					{
+						id: "4",
+						name: "Thomas Newman",
+						role: "Music",
+						image: "https://i.pravatar.cc/150?img=8",
+					},
+				],
 			},
 		],
 	},
