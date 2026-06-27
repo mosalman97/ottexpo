@@ -164,7 +164,7 @@ export default function DetailScreen() {
 						mode="contained"
 						icon="play"
 						className="mt-6"
-						textColor={isDark ? colors.white : colors.black}
+						textColor={colors.white}
 					>
 						Play Now
 					</Button>
@@ -173,7 +173,7 @@ export default function DetailScreen() {
 						mode="outlined"
 						icon="download"
 						className="mt-3"
-						textColor={isDark ? colors.white : colors.black}
+						textColor={colors.white}
 					>
 						Download
 					</Button>

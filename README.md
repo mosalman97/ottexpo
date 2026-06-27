@@ -100,6 +100,7 @@ ottexpo/
     </td>
     <td align="center">
       <img src="./src/assets/screen-detail.png" width="250" alt="Detail Screen"/><br/>
+      <img src="./src/assets/screen-detailt.png" width="250" alt="Detail Screenlong"/><br/>
       <b>Detail</b>
     </td>
     <td align="center">
