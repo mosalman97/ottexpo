@@ -119,7 +119,7 @@ export default function HomeScreen() {
 		<Container>
 			<View
 				className="items-center justify-center px-4 pb-3"
-				style={{ paddingTop: insets.top + 10 }}
+				style={{ paddingTop: insets.top + 15 }}
 			>
 				<Logo />
 			</View>

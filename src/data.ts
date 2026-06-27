@@ -39,7 +39,7 @@ export const SKELETON_SECTIONS = [
 	{ title: "For You", data: [] },
 ];
 
-export const banners: BannerItem[] = [
+export const BANNERS: BannerItem[] = [
 	{
 		id: "1",
 		image: "https://image.tmdb.org/t/p/original/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
@@ -54,7 +54,7 @@ export const banners: BannerItem[] = [
 	},
 ];
 
-export const sections: ChannelSection[] = [
+export const SECTIONS: ChannelSection[] = [
 	{
 		title: "Top Rated Movies",
 		data: [

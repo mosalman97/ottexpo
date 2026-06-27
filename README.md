@@ -90,17 +90,24 @@ ottexpo/
 
 ## Screenshots
 
-### Home Screen
+### Dark Theme
 
-<img src="./src/assets/screen-home.png" width="300" alt="Home Screen"/>
-
-### Detail Screen
-
-<img src="./src/assets/screen-detail.png" width="300" alt="Home Screen"/>
-
-### Profile Screen
-
-<img src="./src/assets/screen-profile.png" width="300" alt="Home Screen"/>
+<table>
+  <tr>
+    <td align="center">
+      <img src="./src/assets/screen-home.png" width="250" alt="Home Screen"/><br/>
+      <b>Home</b>
+    </td>
+    <td align="center">
+      <img src="./src/assets/screen-detail.png" width="250" alt="Detail Screen"/><br/>
+      <b>Detail</b>
+    </td>
+    <td align="center">
+      <img src="./src/assets/screen-profile.png" width="250" alt="Profile Screen"/><br/>
+      <b>Profile</b>
+    </td>
+  </tr>
+</table>
 
 ## Available Scripts
 

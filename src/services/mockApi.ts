@@ -1,9 +1,9 @@
-import { sections,banners } from "@/data";
+import { BANNERS, SECTIONS } from "@/data";
 
 export const fetchHomeData = async () => {
 	try {
 		await new Promise((resolve) => setTimeout(resolve, 1200));
-		return sections;
+		return SECTIONS;
 	} catch (error) {
 		throw new Error("Something went wrong");
 	}
@@ -12,7 +12,7 @@ export const fetchHomeData = async () => {
 export const fetchBannerData = async () => {
 	try {
 		await new Promise((resolve) => setTimeout(resolve, 1200));
-		return banners;
+		return BANNERS;
 	} catch (error) {
 		throw new Error("Failed to fetch banners");
 	}
