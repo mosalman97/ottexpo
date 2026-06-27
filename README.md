@@ -112,12 +112,6 @@ npm run lint          # Check code quality
 npm run reset-project # Reset to initial state
 ```
 
-## Screenshots
-
-### Home Screen
-
-<img src="Screenshot_1782536492.png" width="300" alt="Home Screen">
-
 **Features shown:**
 
 - TellyGO app branding
@@ -144,6 +138,86 @@ eas build --platform android
 ```bash
 eas build --platform ios
 ```
+
+## Generate Android APK (Expo)
+
+### Option 1: Local APK Build (Recommended)
+
+Build a debug APK locally without using EAS Cloud.
+
+```bash
+npx expo run:android
+```
+
+Or, if using React Native CLI:
+
+```bash
+npm run android
+```
+
+> Requires Android Studio and an Android SDK installed.
+
+---
+
+### Option 2: Build APK with EAS (Recommended for Sharing)
+
+1. Install the EAS CLI
+
+```bash
+npm install -g eas-cli
+```
+
+2. Login to your Expo account
+
+```bash
+eas login
+```
+
+3. Configure EAS (first time only)
+
+```bash
+eas build:configure
+```
+
+4. Build an Android APK
+
+```bash
+eas build --platform android --profile preview
+```
+
+> The **preview** profile generates an APK suitable for testing and sharing.
+
+If you don't already have a preview profile, add this to `eas.json`:
+
+```json
+{
+	"build": {
+		"preview": {
+			"distribution": "internal",
+			"android": {
+				"buildType": "apk"
+			}
+		},
+		"production": {
+			"autoIncrement": true
+		}
+	}
+}
+```
+
+5. After the build finishes, Expo will provide a download link for the generated APK.
+
+---
+
+### Generate an Android App Bundle (.aab)
+
+For publishing to the Google Play Store:
+
+```bash
+eas build --platform android --profile production
+```
+
+This generates an **Android App Bundle (.aab)**, which is the required format for Google Play.
 
 ## Requirements
 
