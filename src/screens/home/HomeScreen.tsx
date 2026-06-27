@@ -12,7 +12,7 @@ import { fetchBannerData, fetchHomeData } from "@/services/mockApi";
 import { BannerItem, ChannelSection as Section } from "@/types";
 import { Skeleton } from "moti/skeleton";
 import React, { useCallback, useEffect, useState } from "react";
-import { FlatList, SectionList, Text, View } from "react-native";
+import { FlatList, SectionList, StatusBar, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
@@ -117,6 +117,10 @@ export default function HomeScreen() {
 
 	return (
 		<Container>
+			<StatusBar
+				backgroundColor={colors.background}
+				barStyle="light-content"
+			/>
 			<View
 				className="items-center justify-center px-4 pb-3"
 				style={{ paddingTop: insets.top + 15 }}

@@ -52,16 +52,29 @@ export default function DetailScreen() {
 
 	return (
 		<Container>
-			<StatusBar barStyle="light-content" />
+			<StatusBar
+				translucent
+				backgroundColor="transparent"
+				barStyle="light-content"
+			/>
 			<Animated.View
-				className="absolute left-0 right-0 top-0 z-50 h-[90px] justify-end bg-[#111] px-5 pb-[15px]"
+				className="absolute left-0 right-0 top-0 z-50 h-[90px] flex-row items-end bg-[#111] px-5 pb-[15px]"
 				style={{ opacity }}
-				pointerEvents="none"
+				pointerEvents="box-none"
 			>
+				<TouchableOpacity
+					onPress={handleBack}
+					accessibilityRole="button"
+					accessibilityLabel="Go back"
+					className="mr-4"
+				>
+					<Ionicons name="arrow-back" size={26} color="white" />
+				</TouchableOpacity>
+
 				<Text
 					numberOfLines={1}
 					ellipsizeMode="tail"
-					className="text-[18px] font-semibold text-white"
+					className="flex-1 text-[18px] font-semibold text-white"
 				>
 					{movie.title}
 				</Text>

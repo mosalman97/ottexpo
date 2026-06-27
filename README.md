@@ -95,16 +95,46 @@ ottexpo/
 <table>
   <tr>
     <td align="center">
-      <img src="./src/assets/screen-home.png" width="250" alt="Home Screen"/><br/>
+      <img src="./src/assets/screen-dark-home.png" width="250" alt="Home Screen"/><br/>
       <b>Home</b>
     </td>
     <td align="center">
-      <img src="./src/assets/screen-detail.png" width="250" alt="Detail Screen"/><br/>
-      <img src="./src/assets/screen-detailt.png" width="250" alt="Detail Screenlong"/><br/>
-      <b>Detail</b>
+      <img src="./src/assets/screen-dark-detailtop.png" width="250" alt="Detail Screen (Top)"/><br/>
+      <br/>
+       <b>Detail (Top)</b>
+    </td>
+      <td align="center">
+      <img src="./src/assets/screen-dark-detailbottom.png" width="250" alt="Detail Screen (Bottom)"/><br/>
+      <br/>
+       <b>Detail (Bottom)</b>
     </td>
     <td align="center">
-      <img src="./src/assets/screen-profile.png" width="250" alt="Profile Screen"/><br/>
+      <img src="./src/assets/screen-dark-profile.png" width="250" alt="Profile Screen"/><br/>
+      <b>Profile</b>
+    </td>
+  </tr>
+</table>
+
+### Light Theme
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="./src/assets/screen-light-home.png" width="250" alt="Home Screen"/><br/>
+      <b>Home</b>
+    </td>
+    <td align="center">
+      <img src="./src/assets/screen-light-detailtop.png" width="250" alt="Detail Screen (Top)"/><br/>
+      <br/>
+       <b>Detail (Top)</b>
+    </td>
+      <td align="center">
+      <img src="./src/assets/screen-light-detailbottom.png" width="250" alt="Detail Screen (Bottom)"/><br/>
+      <br/>
+       <b>Detail (Bottom)</b>
+    </td>
+    <td align="center">
+      <img src="./src/assets/screen-light-profile.png" width="250" alt="Profile Screen"/><br/>
       <b>Profile</b>
     </td>
   </tr>
