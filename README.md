@@ -76,16 +76,32 @@ Option 2: Using Expo Go
 ## Project Structure
 
 ```
-ottexpo/
+OTTExpo/
 ├── src/
-│   ├── screens/         # App pages (Home, Profile)
-│   ├── components/      # Reusable UI components
-│   ├── navigation/      # App navigation setup
-│   ├── theme/           # Colors and design tokens,
-│   ├──assets/           # Images and icons
-│   ├── store/           # App state (Zustand)
-│   └── services/        # API calls
-└── App.tsx              # Main app file
+│   ├── assets/              # Images, icons, screenshots
+│   ├── components/          # Reusable UI components
+│   ├── constants/           # App constants (dimensions)
+│   ├── hooks/               # Custom React hooks
+│   ├── navigation/          # React Navigation setup
+│   ├── providers/           # Global context providers
+│   ├── screens/
+│   │   ├── Home/
+│   │   │   ├── HomeScreen.tsx
+│   │   │   └── DetailScreen.tsx
+│   │   └── Profile/
+│   │       └── ProfileScreen.tsx
+│   ├── services/            # API layer and data fetching
+│   ├── store/               # Zustand global state
+│   ├── theme/               # Colors, typography, and design tokens
+│   ├── data.ts              # Dummy data used during development
+│   └── types.ts             # Shared TypeScript types and interfaces
+│
+├── App.tsx                  # Application entry point
+├── package.json
+├── app.json
+├── tsconfig.json
+├── babel.config.js
+└── README.md
 ```
 
 ## Screenshots
